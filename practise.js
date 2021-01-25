@@ -22,5 +22,28 @@ for (let i = 0; i < V; i++) {
   }
   netarr[i] = amcredit - amdebit;
 }
+let count = 0;
+function settlement(netarr) {
+  let i = 0;
+  let j = netarr.length - 1;
+  while (i < j) {
+    let lo = netarr[i];
+    let hi = netarr[j];
+    let settlementamt = Math.min(-lo, hi);
+    netarr[i] += settlementamt;
+    netarr[j] -= settlementamt;
+    if (netarr[i] == 0) {
+      i++;
+    }
+    if (netarr[j] == 0) {
+      j--;
+    }
+    count++;
+  }
+}
 
+netarr.sort();
 console.log(netarr);
+settlement(netarr);
+console.log(netarr);
+console.log(count);
