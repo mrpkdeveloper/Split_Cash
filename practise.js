@@ -32,6 +32,7 @@ function settlement(netarr) {
     let settlementamt = Math.min(-lo, hi);
     netarr[i] += settlementamt;
     netarr[j] -= settlementamt;
+    console.log(i + " pays " + settlementamt + " to " + j);
     if (netarr[i] == 0) {
       i++;
     }
@@ -42,8 +43,8 @@ function settlement(netarr) {
   }
 }
 
-netarr.sort();
+// netarr.sort();
 console.log(netarr);
 settlement(netarr);
-console.log(netarr);
+// console.log(netarr);
 console.log(count);
