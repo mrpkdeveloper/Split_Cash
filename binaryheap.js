@@ -1,6 +1,7 @@
+// using heap reduces time to nlogn from n^2
 // left child at 2K+1 and right at 2K+2
-
-class binaryheap {
+export { BinaryHeap };
+class BinaryHeap {
   constructor() {
     this.heap = [];
   }
@@ -11,7 +12,7 @@ class binaryheap {
     return this.size() == 0;
   }
 
-  insertvalue(value) {
+  insert(value) {
     this.heap.push(value);
     this.bubbleup();
   }
@@ -33,7 +34,7 @@ class binaryheap {
     }
   }
 
-  extractmax() {
+  extractMax() {
     const max = this.heap[0];
     const last = this.heap.pop();
 
@@ -45,7 +46,7 @@ class binaryheap {
     return max;
   }
 
-  sinkdown(index) {
+  sinkDown(index) {
     let largest = index;
     let leftchildind = 2 * index + 1;
     let rightchildind = 2 * index + 2;
@@ -67,20 +68,20 @@ class binaryheap {
       let temp = this.heap[largest];
       this.heap[largest] = this.heap[index];
       this.heap[index] = temp;
-      this.sinkdown(largest);
+      this.sinkDown(largest);
     }
   }
 }
 
-let maxheap = new binaryheap();
-maxheap.insertvalue([4, 1]);
-maxheap.insertvalue([3, 1]);
-maxheap.insertvalue([6, 1]);
-maxheap.insertvalue([1, 1]);
+//   let maxheap = new binaryheap();
+//   maxheap.insertvalue([4, 1]);
+//   maxheap.insertvalue([3, 1]);
+// maxheap.insertvalue([6, 1]);
+// maxheap.insertvalue([1, 1]);
 
-console.log(maxheap);
+// console.log(maxheap);
 
-while (!maxheap.empty()) {
-  console.log(maxheap.extractmax());
-}
+// while (!maxheap.empty()) {
+//   console.log(maxheap.extractmax());
+// }
 // console.log("hello");

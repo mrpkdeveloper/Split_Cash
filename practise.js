@@ -43,7 +43,7 @@ function settlement(netarr) {
   }
 }
 
-// netarr.sort();
+// netarr.sort(); 
 console.log(netarr);
 settlement(netarr);
 // console.log(netarr);
