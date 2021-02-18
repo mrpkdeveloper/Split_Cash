@@ -97,7 +97,7 @@ onload = function () {
     let data = curr_data;
     const sz = data["nodes"].length;
     const vals = Array(sz).fill(0);
-    // Calculating net balance of each person
+    //********************************** */ Calculating net balance of each person *********************
     for (let i = 0; i < data["edges"].length; i++) {
       const edge = data["edges"][i];
       vals[edge["to"] - 1] += parseInt(edge["label"]);
